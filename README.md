@@ -32,7 +32,7 @@ This production-grade n8n engine acts as a resilient gatekeeper and speed-to-lea
 * **⚡ Sub-5-Second Speed-to-Lead:** Instantly alerts sales reps via Slack and initiates automated WhatsApp messages to engage hot leads before competitors respond.
 * **🛡️ Defensive CRM Hygiene:** Filters out honeypots, invalid phone numbers, and disposable emails before touching HubSpot records.
 * **🧠 Hybrid Qualification:** Replaces manual triage with deterministic business rules (budget/company size) + Gemini AI intent scoring.
-* **🚨 Production Resilience:** Centralized engine-level monitoring and Airtable audit logs ensure zero data loss during API downtime or network timeouts.
+* **🚨 Enterprise Incident Resilience:**  Engine-level Error Trigger captures API downtime, rate limits, and payload shifts—instantly notifying engineering via Slack & Gmail with a direct 1-click execution recovery URL while maintaining complete Airtable audit persistence to guarantee zero data loss.
 
 ---
 
