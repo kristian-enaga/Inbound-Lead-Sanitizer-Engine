@@ -19,7 +19,7 @@ Sales and marketing teams lose up to **30% of high-intent leads** due to delayed
 This production-grade n8n engine acts as a resilient gatekeeper and speed-to-lead routing engine:
 
 1. **Ingestion & Security Gatekeeper:** Silently drops bots and honeypots, sanitizes inputs, enforces international E.164 phone formatting, and checks disposable spam domain blocklists.
-2. **AI Intel & CRM Sync:** Upserts verified contacts into HubSpot and uses Google Gemini AI to analyze lead intent, assign urgency levels (`HIGH`, `MED`, `LOW`), and generate executive summaries.
+2. **AI Intel & CRM Sync:** Upserts verified contacts into HubSpot and uses Google Gemini AI to analyze lead intent, assign urgency levels (`Exploring', 'Immediate Buying', 'Support', or 'Spam`), and generate executive summaries.
 3. **Multi-Tier Score Routing:**
    * **Hot Leads ($\text{Score} \ge 70$):** Triggers instant `#sales-hot-leads` Slack VIP alerts, schedules phone tasks, and fires automated WhatsApp outreach.
    * **Warm Leads ($\text{Score} < 70$):** Dispatches personalized Gmail auto-replies and tags contacts for HubSpot nurture sequences.
