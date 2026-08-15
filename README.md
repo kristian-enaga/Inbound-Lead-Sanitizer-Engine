@@ -24,6 +24,7 @@ This production-grade n8n engine acts as a resilient gatekeeper and speed-to-lea
    * **Hot Leads ($\text{Score} \ge 70$):** Triggers instant `#sales-hot-leads` Slack VIP alerts, schedules phone tasks, and fires automated WhatsApp outreach.
    * **Warm Leads ($\text{Score} < 70$):** Dispatches personalized Gmail auto-replies and tags contacts for HubSpot nurture sequences.
 4. **Audit Trail & Fail-Safe Security:** Writes execution metrics to Airtable central audit logs while completely isolating bot entries away from primary sales pipelines.
+5. **Global Incident Resilience:** Captures unhandled workflow exceptions and automatically dispatches rich Slack and Gmail alerts equipped with 1-click execution recovery links for immediate incident triage.
 
 ---
 
