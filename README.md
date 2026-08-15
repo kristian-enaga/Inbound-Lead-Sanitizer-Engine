@@ -2,75 +2,72 @@
 
 An enterprise-grade n8n inbound pipeline built for sub-5-second speed-to-lead execution, defensive data cleansing, hybrid AI qualification, and automated multi-channel routing.
 
-![Inbound Lead Sanitizer Workflow Architecture](Inbound-Lead-Sanitizer-Engine.png)
+[![Loom Video Walkthrough](https://img.shields.io/badge/Loom-Video_Walkthrough-625DF5?style=for-the-badge&logo=loom&logoColor=white)](YOUR_LOOM_LINK_HERE)
+
+![Workflow Architecture](Inbound-Lead-Sanitizer-Engine.png)
+
+🎬 **Video Demo:** Watch the full architecture, defensive data cleansing, and resilient fail-safe walkthrough on [Loom](YOUR_LOOM_LINK_HERE).
 
 ---
 
-## 🎯 Business ROI & Prevention
-* **⚡ Sub-5-Second Speed-to-Lead:** Triggers instant Slack VIP alerts and automated WhatsApp engagement to capture high-intent buyers before competitors reply.
-* **🛡️ Defensive CRM Hygiene:** Filters out bots, honeypots, disposable email domains, and invalid phone formats before touching HubSpot records.
-* **🧠 Hybrid Qualification:** Combines deterministic business rules (budget, company size) with Gemini AI intent and urgency scoring (`HIGH`, `MED`, `LOW`).
-* **🚨 Production Resilience:** Centralized audit logs in Airtable and engine-level incident monitoring ensure zero data loss during API downtime.
+## 🎯 Business Problem
+Sales and marketing teams lose up to **30% of high-intent leads** due to delayed follow-ups and bloated CRM databases. Form spam, bot submissions, disposable email domains, and malformed phone numbers routinely contaminate CRMs like HubSpot, forcing sales reps to waste hours manually verifying incoming prospects instead of closing deals.
 
 ---
 
-## 🏗️ Workflow Architecture
+## 🚀 Solution Overview
+This production-grade n8n engine acts as a resilient gatekeeper and speed-to-lead routing engine:
 
-```text
-[ Incoming Webhook ] ──► [ Phase 1: Ingestion & Security ] ──( Spam/Bot )──► [ Phase 6: Security Audit Log ]
-                                  │
-                                  ▼
-                        [ Phase 2: CRM & AI Triage ] (HubSpot + Gemini AI)
-                                  │
-                                  ▼
-                        [ Phase 3: Airtable Audit Persistence ]
-                                  │
-                                  ▼
-                        [ Multi-Tier Score Router ]
-                           ├── Score ≥ 70 (HOT)  ──► [ Phase 4: Slack VIP + WhatsApp + Sales Call ]
-                           └── Score < 70 (WARM) ──► [ Phase 5: Gmail Auto-Reply + HubSpot Queue ]
+1. **Ingestion & Security Gatekeeper:** Silently drops bots and honeypots, sanitizes inputs, enforces international E.164 phone formatting, and checks disposable spam domain blocklists.
+2. **AI Intel & CRM Sync:** Upserts verified contacts into HubSpot and uses Google Gemini AI to analyze lead intent, assign urgency levels (`HIGH`, `MED`, `LOW`), and generate executive summaries.
+3. **Multi-Tier Score Routing:**
+   * **Hot Leads ($\text{Score} \ge 70$):** Triggers instant `#sales-hot-leads` Slack VIP alerts, schedules phone tasks, and fires automated WhatsApp outreach.
+   * **Warm Leads ($\text{Score} < 70$):** Dispatches personalized Gmail auto-replies and tags contacts for HubSpot nurture sequences.
+4. **Audit Trail & Fail-Safe Security:** Writes execution metrics to Airtable central audit logs while completely isolating bot entries away from primary sales pipelines.
 
+---
 
-🛠️ Key Technical Features
-Phase 1: Ingestion, Security & Deep Data Cleansing
-Honeypot Validation: Silently captures and isolates automated form spam via Inbound Gatekeeper.
+## 💰 Business Impact & ROI
+* **⚡ Sub-5-Second Speed-to-Lead:** Instantly alerts sales reps via Slack and initiates automated WhatsApp messages to engage hot leads before competitors respond.
+* **🛡️ Defensive CRM Hygiene:** Filters out honeypots, invalid phone numbers, and disposable emails before touching HubSpot records.
+* **🧠 Hybrid Qualification:** Replaces manual triage with deterministic business rules (budget/company size) + Gemini AI intent scoring.
+* **🚨 Production Resilience:** Centralized engine-level monitoring and Airtable audit logs ensure zero data loss during API downtime or network timeouts.
 
-Data Sanitization: Trims whitespace and enforces international E.164 phone formatting.
+---
 
-Spam Domain Lookup: Real-time checking against disposable and high-risk email domains.
+## 🧪 Live Execution Proof & Payload Verification
 
-Phase 2: CRM Sync & Hybrid AI Scoring
-HubSpot Integration: Upserts contact profiles based on clean email and phone metrics.
+Here is the verified execution log confirming successful end-to-end data processing, AI scoring, and multi-channel delivery.
 
-Deterministic Scoring Matrix: Calculates base fit using hard lead criteria (Budget, Company Size, Role).
+### 1. Successful n8n Execution History
+![n8n Execution History](inbound-execution-history.png)
+*Figure 1: n8n execution history showing 100% successful runs across all 6 architectural phases.*
 
-Gemini AI Intent Analyzer: Evaluates unstructured lead messages to output structured JSON intent, urgency levels, and executive summaries.
+### 2. Node Input / Output JSON Data Payload
+![JSON Output Verification](inbound-json-payload.png)
+*Figure 2: Structured JSON payload displaying cleansed E.164 phone data, Gemini AI intent analysis, and lead scoring outputs.*
 
-Phase 3 & 6: Audit Logging & Security Isolation
-Airtable Audit Trail: Writes permanent execution logs for both qualified and low-priority paths.
+---
 
-Security Isolation: Logs honeypot triggers and invalid submissions to Airtable - Log Bot, Spam & Incomplete Leads away from primary CRM pipelines.
+## 🛠️ Tech Stack & Integrations
+* **Automation Engine:** n8n (Self-Hosted / Production)
+* **CRM Layer:** HubSpot API (Private App Access Token)
+* **AI Intelligence:** Google Gemini API (Structured Outputs)
+* **Communication Channels:** Slack API, WhatsApp Business API, Gmail API
+* **Database & Audit Logs:** Airtable API
 
-Phase 4 & 5: Multi-Tier Sales Routing
-Hot Leads (Score ≥ 70): Pushes rich-formatted notifications to #sales-hot-leads in Slack, queues phone tasks, and initiates instant WhatsApp outreach.
+---
 
-Warm / Cold Leads (Score < 70): Triggers auto-reply emails, schedules secondary sales calls, and tags contacts in HubSpot for nurture campaigns.
+## ⚙️ How to Import
 
-🚀 Setup & Installation
-Import Workflow:
+1. Download the `Inbound Lead Sanitizer, Multi-Criteria Scoring & Resilient Outreach Engine.json` file from this repository.
+2. Open your n8n canvas $\rightarrow$ **Workflows** $\rightarrow$ **Import from File**.
+3. Reconnect your credentials for **HubSpot**, **Gemini**, **Slack**, **WhatsApp**, **Gmail**, and **Airtable**.
+4. Set workflow status to **Active** and link your production webhook URL to your lead capture forms.
 
-Download Inbound Lead Sanitizer, Multi-Criteria Scoring & Resilient Outreach Engine.json.
+---
 
-Open n8n and go to Workflows > Import from File.
-
-Configure Credentials:
-
-HubSpot API: Private App Access Token with contact read/write permissions.
-
-Google Gemini API: API Key for structured output generation.
-
-Airtable / Slack / WhatsApp / Gmail: Authorized service connections.
-
-Activate:
-
-Set workflow status to Active and link your webhook entry point to your lead capture form.
+## 📈 Engineering Roadmap & Milestone
+* **Roadmap Phase:** Phase 2 (Automation Engineering)
+* **Sprint Tracker:** Sprint 3 — JSON Data Engineering & Portfolio Documentation
+* **Build Milestone:** Completed (Day 59/153)
