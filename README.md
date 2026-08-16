@@ -2,7 +2,7 @@
 
 An enterprise-grade n8n inbound pipeline built for sub-5-second speed-to-lead execution, defensive data cleansing, hybrid AI qualification, and automated multi-channel routing.
 
-[![Automated Inbound Lead Sanitizer, AI Scoring & Real-Time CRM Routing](Inbound%20Lead%20Sanitizer%20Workflow%20Architecture.png)](https://www.loom.com/share/c38d37d65eed44129a712e530a8e2446)
+[![Inbound Lead Sanitizer Workflow Architecture](Inbound%20Lead%20Sanitizer%20Workflow%20Architecture.png)](https://www.loom.com/share/c38d37d65eed44129a712e530a8e2446)
 
 🎬 **Video Demo:** Watch the full architecture, defensive data cleansing, and resilient fail-safe walkthrough on [Loom](https://www.loom.com/share/c38d37d65eed44129a712e530a8e2446).
 
@@ -53,6 +53,7 @@ Here is the verified execution log confirming successful end-to-end data process
 | Slack Incident Alert | Gmail Recovery Alert |
 | :--- | :--- |
 | ![Slack Alert](Slack-error-notify.png) | ![Gmail Alert](Gmail-error-notify.png) |
+
 *Figure 3: Automatic incident alerts containing direct 1-click execution links for instant debugging.*
 
 ---
