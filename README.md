@@ -59,7 +59,7 @@ Here is the verified execution log confirming successful end-to-end data process
 
 ---
 
-## 🧩 Module-by-Module Breakdown
+## 🧩 Node-by-Node Breakdown
 
 Here is a plain-English breakdown of every node engineered into this pipeline and the specific business value each module delivers:
 
