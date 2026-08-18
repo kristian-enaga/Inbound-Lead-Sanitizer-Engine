@@ -56,6 +56,50 @@ Here is the verified execution log confirming successful end-to-end data process
 
 *Figure 3: Automatic incident alerts containing direct 1-click execution links for instant debugging.*
 
+
+---
+
+## 🧩 Module-by-Module Breakdown
+
+Here is a plain-English breakdown of every node engineered into this pipeline and the specific business value each module delivers:
+
+* **1. Webhook Trigger (Lead Ingestion):**
+  * **What it does:** Captures raw inbound lead payloads (names, phone numbers, emails, budgets, and message details) instantly from web forms or landing pages.
+  * **Value:** Ensures sub-5-second ingestion speed with zero dropped form submissions during traffic spikes.
+
+* **2. Honeypot & Bot Filter (Security Gatekeeper):**
+  * **What it does:** Inspects silent form fields (honeypots) and submission timestamps to identify and drop spam bots.
+  * **Value:** Protects downstream databases and CRM contact limits from automated spam contamination.
+
+* **3. Phone Sanitizer & E.164 Normalizer (Data Cleansing):**
+  * **What it does:** Strips non-numeric characters from incoming phone numbers and formats them to international E.164 standards (+1, +63, etc.).
+  * **Value:** Guarantees valid phone formatting required for automated SMS/WhatsApp routing and CRM synchronization.
+
+* **4. Spam Domain & Disposable Email Check (Verification Gate):**
+  * **What it does:** Validates lead email addresses against blocklists of disposable/temporary email providers.
+  * **Value:** Prevents fake leads from wasting sales team outreach time and protects domain email deliverability ratings.
+
+* **5. HubSpot CRM Search & Upsert (Contact Sync):**
+  * **What it does:** Checks if the lead already exists in HubSpot; creates a new contact or updates existing records without creating duplicates.
+  * **Value:** Maintains clean, deduplicated CRM data without requiring manual data entry.
+
+* **6. Gemini AI Intent Scoring & Groq Fallback (AI Qualification):**
+  * **What it does:** Evaluates lead message content, assigns an intent score (0–100), categorizes buying urgency, and generates an executive summary. Uses Groq as an instant fallback if Gemini limits are reached.
+  * **Value:** Replaces manual lead triage with deterministic AI qualification, prioritizing high-value buyers instantly.
+
+* **7. Multi-Tier Score Router (Dynamic Sales Dispatch):**
+  * **What it does:** Directs leads down dedicated channels based on their qualification score:
+    * **`Hot Leads (Score ≥ 70)`:** Dispatches instant Slack VIP alerts, schedules call tasks, and triggers WhatsApp outreach.
+    * **`Warm Leads (Score < 70)`:** Fires personalized Gmail auto-replies and tags contacts for email nurture campaigns.
+  * **Value:** Maximizes speed-to-lead for top prospects while automating routine follow-ups for mid-tier leads.
+
+* **8. Airtable Audit Log (Database Persistence):**
+  * **What it does:** Records full execution logs, AI scores, phone status, and timestamps into an audit database.
+  * **Value:** Delivers an immutable audit trail for sales analytics, reporting, and workflow debugging.
+
+* **9. Engine Error Trigger & Incident Handler (Resilience Layer):**
+  * **What it does:** Captures unhandled workflow errors, API rate limits, or network timeouts, instantly alerting engineering via Slack and Gmail with a 1-click execution recovery link.
+  * **Value:** Guarantees zero data loss and enables 1-click incident recovery without digging through server logs.
 ---
 
 ## 🛠️ Tech Stack & Integrations
