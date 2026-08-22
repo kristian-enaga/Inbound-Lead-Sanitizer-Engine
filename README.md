@@ -70,8 +70,8 @@ Here is the verified execution log confirming successful end-to-end data process
   * **Value:** Protects downstream databases and CRM contact limits from automated spam contamination.
 
 * **3. Phone Sanitizer & E.164 Normalizer (Data Cleansing):**
-  * **What it does:** Strips non-numeric characters from incoming phone numbers and formats them to international E.164 standards (+1, +63, etc.).
-  * **Value:** Guarantees valid phone formatting required for automated SMS/WhatsApp routing and CRM synchronization.
+  - *What it does:* Trims raw string inputs, corrects common email domain typos (e.g., converting `:com` or `,com` to `.com`), strips non-numeric characters from incoming phone numbers, and formats them to international E.164 standards (`+1`, `+63`, etc.).
+  - *Value:* Eliminates malformed inputs, prevents email soft bounces, and guarantees valid phone formatting required for automated SMS/WhatsApp routing and CRM synchronization.
 
 * **4. Spam Domain & Disposable Email Check (Verification Gate):**
   * **What it does:** Validates lead email addresses against blocklists of disposable/temporary email providers.
