@@ -61,8 +61,6 @@ Here is the verified execution log confirming successful end-to-end data process
 
 ## 🧩 Node-by-Node Breakdown
 
-Here is a plain-English breakdown of every node engineered into this pipeline and the specific business value each module delivers:
-
 * **1. Webhook Trigger (Lead Ingestion):**
   * **What it does:** Captures raw inbound lead payloads (names, phone numbers, emails, budgets, and message details) instantly from web forms or landing pages.
   * **Value:** Ensures sub-5-second ingestion speed with zero dropped form submissions during traffic spikes.
