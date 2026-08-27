@@ -11,7 +11,7 @@ Production-grade n8n pipeline that turns raw form submissions into clean, AI-sco
 ---
 An enterprise-grade n8n inbound pipeline built for sub-5-second speed-to-lead execution, defensive data cleansing, hybrid AI qualification, and automated multi-channel routing.
 
----
+
 [![Inbound Lead Sanitizer Workflow Architecture](Inbound%20Lead%20Sanitizer%20Workflow%20Architecture.png)](https://www.loom.com/share/c38d37d65eed44129a712e530a8e2446)
 
 🎬 **Video Demo:** Watch the full architecture, defensive data cleansing, and resilient fail-safe walkthrough on [Loom](https://www.loom.com/share/c38d37d65eed44129a712e530a8e2446).
