@@ -1,4 +1,4 @@
-# ⚡ Enterprise Inbound Lead Sanitizer & Resilient Outreach Engine
+# ⚡ Inbound Lead Sanitizer & Resilient Outreach Engine
 
 Production-grade n8n pipeline that turns raw form submissions into clean, AI-scored, instantly routed leads—so sales teams respond to hot prospects in seconds instead of hours.
 
