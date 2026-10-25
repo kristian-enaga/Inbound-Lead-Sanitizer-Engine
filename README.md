@@ -101,11 +101,15 @@ Here is the verified execution log confirming successful end-to-end data process
     * **`Warm Leads (Score < 70)`:** Fires personalized Gmail auto-replies and tags contacts for email nurture campaigns.
   * **Value:** Maximizes speed-to-lead for top prospects while automating routine follow-ups for mid-tier leads.
 
-* **8. Airtable Audit Log (Database Persistence):**
-  * **What it does:** Records full execution logs, AI scores, phone status, and timestamps into an audit database.
-  * **Value:** Delivers an immutable audit trail for sales analytics, reporting, and workflow debugging.
+* **8. Supabase DLQ (Dead Line & Fallback Recovery):**
+  * **What it does:** Captures raw lead payloads during API timeouts, unexpected parsing crashes, or rate-limit failures into a persistent Supabase table.
+  * **Value:** Guarantees **zero lead loss** during high-traffic spikes and unexpected upstream service outages.
 
-* **9. Engine Error Trigger & Incident Handler (Resilience Layer):**
+* **9. Airtable Security & Spam Isolation Logs:**
+  * **What it does:** Automatically routes blocked bot submissions, honeypot triggers, and disposable email signups into dedicated Airtable security tables while notifying the team via Slack.
+  * **Value:** Keeps malicious entries entirely isolated away from clean HubSpot CRM records for compliance and review.
+
+* **10. Engine Error Trigger & Incident Handler (Resilience Layer):**
   * **What it does:** Captures unhandled workflow errors, API rate limits, or network timeouts, instantly alerting engineering via Slack and Gmail with a 1-click execution recovery link.
   * **Value:** Guarantees zero data loss and enables 1-click incident recovery without digging through server logs.
 ---
